@@ -39,10 +39,12 @@ public class LineDrawing : MonoBehaviour
             line.startWidth = lineWidth;
             line.endWidth = lineWidth;
             */
+            
             newLine = Instantiate(newLine);
             line = newLine.GetComponent<LineRenderer>();
             line.startWidth = lineWidth;
             line.endWidth = lineWidth;
+            
 
         }
         if (Input.GetMouseButton(0))
