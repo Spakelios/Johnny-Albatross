@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Kellies Stuff/scenes/PSXTEST.unity
+    guid: 603246b7810bae84bbde0f1c68aac345
   m_configObjects: {}
