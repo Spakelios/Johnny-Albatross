@@ -13,6 +13,8 @@ public class LineDrawing : MonoBehaviour
     public GameObject newLine;
 
     public float lineWidth;
+    private Vector3 mousePos;
+    
 
     private void Start()
     {
@@ -20,9 +22,17 @@ public class LineDrawing : MonoBehaviour
        linePoints = new List<Vector3>();
     }
     
-    private Vector3 GetMousePosition()
+    private Vector2 GetMousePosition()
     {
-        ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        
+        mousePos = Input.mousePosition;
+        /*
+        mousePos.x = Mathf.Clamp(mousePos.x, 478f, 1055f);
+        mousePos.y = Mathf.Clamp(mousePos.y, 78f, 655f);
+        print(mousePos.x + ", " + mousePos.y);
+        */
+        print(mousePos.x + ", " + mousePos.y +"," + mousePos.z);
+        ray = mainCamera.ScreenPointToRay(mousePos);
         return ray.origin + ray.direction * 10;
     }
 
