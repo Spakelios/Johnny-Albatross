@@ -15,11 +15,10 @@ public class DialogueTrigger : MonoBehaviour
     public TMP_Text dialogueBox;
     public TMP_Text nameTag;
 
-
+    public GameObject box;
     public Image characterIcon;
     [SerializeField] private GridLayoutGroup choiceHolder;
     [SerializeField] private Button choiceButtonPrefab;
-    public Image backgroundIcon;
 
 
     void Start()
@@ -35,7 +34,7 @@ public class DialogueTrigger : MonoBehaviour
 
         }
 
-        if (num >= 2)
+        if (num >= 1)
         {
             num = 0;
         }
@@ -62,6 +61,10 @@ public class DialogueTrigger : MonoBehaviour
         else if (_StoryScript.currentChoices.Count > 0)
         {
             DisplayChoices();
+        }
+        else
+        {
+            box.SetActive(false);
         }
     }
 
