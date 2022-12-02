@@ -66,6 +66,8 @@ public class DialogueTrigger : MonoBehaviour
         else
         {
             box.SetActive(false);
+            LoadStory();
+            Time.timeScale = 1;
         }
     }
 

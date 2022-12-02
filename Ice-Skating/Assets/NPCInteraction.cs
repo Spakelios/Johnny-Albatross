@@ -26,7 +26,8 @@ public class NPCInteraction : MonoBehaviour
             GM2.SetActive(false);
             GM3.SetActive(false);
             GM4.SetActive(false);
-            
+            Time.timeScale = 1;
+
         } 
         
     }
@@ -39,6 +40,7 @@ public class NPCInteraction : MonoBehaviour
             {
                 InteractButton.SetActive(false);
                 Textbox.SetActive(true);
+                Time.timeScale = 0f;
             }
             
         }
