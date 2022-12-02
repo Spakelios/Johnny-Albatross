@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
 {
-    public GameObject GameManager, GM2, GM3;
+    public GameObject GameManager, GM2, GM3, GM4;
     public GameObject Textbox;
     public GameObject InteractButton;
 
@@ -16,6 +16,7 @@ public class NPCInteraction : MonoBehaviour
             GameManager.SetActive(true);
             GM2.SetActive(false);
             GM3.SetActive(false);
+            GM4.SetActive(false);
        
         }
         else
@@ -24,6 +25,8 @@ public class NPCInteraction : MonoBehaviour
             Textbox.SetActive(false);
             GM2.SetActive(false);
             GM3.SetActive(false);
+            GM4.SetActive(false);
+            
         } 
         
     }
