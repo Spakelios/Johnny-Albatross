@@ -16,12 +16,11 @@ public class NPCInteraction : MonoBehaviour
             GameManager.SetActive(true);
             GM2.SetActive(false);
             GM3.SetActive(false);
-            InteractButton.SetActive(true);
+       
         }
         else
         {
             GameManager.SetActive(false);
-            InteractButton.SetActive(false);
             Textbox.SetActive(false);
             GM2.SetActive(false);
             GM3.SetActive(false);
