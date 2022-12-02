@@ -2,6 +2,7 @@ EXTERNAL Name(charName)
 EXTERNAL Icon(charName)
 
 {Name("Jeanie")}
+{Icon("Jeanie")}
 
 So, you do as i told you?
 Good. Then you should be more than ready.
