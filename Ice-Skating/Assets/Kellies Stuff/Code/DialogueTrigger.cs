@@ -45,7 +45,8 @@ public class DialogueTrigger : MonoBehaviour
         _StoryScript = new Story(_InkJsonFile.text);
 
         _StoryScript.BindExternalFunction("Name", (string charName) => ChangeName(charName));
-        _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));
+        _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));        
+        _StoryScript.BindExternalFunction("Ant", (string charName) => CharacterIcon(charName));
         DisplayNextLine();
 
     }
