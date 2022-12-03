@@ -33,6 +33,6 @@ public class Example : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        controller.center = new Vector3(0, -3f, 0);
+        // controller.center = new Vector3(0, -3f, 0);
     }
 }
