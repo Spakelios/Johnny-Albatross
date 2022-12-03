@@ -23,7 +23,7 @@ public class PDollarDrawingStuffs : MonoBehaviour
 	private void Start ()
 {
 	platform = Application.platform;
-	drawArea = new Rect(0, 0, Screen.width, Screen.height);
+	drawArea = new Rect(0, 0, Screen.width - Screen.width / 3, Screen.height);
 	//Load pre-made gestures
 	TextAsset[] gesturesXml = Resources.LoadAll<TextAsset>("GestureSet/10-stylus-MEDIUM/");
 	foreach (TextAsset gestureXml in gesturesXml)
