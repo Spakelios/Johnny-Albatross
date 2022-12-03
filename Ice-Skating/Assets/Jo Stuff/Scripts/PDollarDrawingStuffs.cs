@@ -22,6 +22,7 @@ public class PDollarDrawingStuffs : MonoBehaviour
 	public bool woah;
 	public int pickSymbol;
 	public string useSymbol;
+	public Result gestureResult;
 
 	public string[] symbols;
 	private GameManager gameManager;
@@ -30,7 +31,7 @@ public class PDollarDrawingStuffs : MonoBehaviour
 	{
 		gameManager = FindObjectOfType<GameManager>();
 		platform = Application.platform;
-		drawArea = new Rect(0, 0, Screen.width - Screen.width / 3, Screen.height);
+		drawArea = new Rect(0, 0, Screen.width, Screen.height);
 		//Load pre-made gestures
 		TextAsset[] gesturesXml = Resources.LoadAll<TextAsset>("GestureSet/10-stylus-MEDIUM/");
 		foreach (TextAsset gestureXml in gesturesXml)
@@ -104,7 +105,7 @@ private void TryRecognize()
 		recognized = true;
 		Gesture candidate = new Gesture(points.ToArray());
 
-		Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
+		gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
 		
 		if (gestureResult.Score < .6f)
 		{
