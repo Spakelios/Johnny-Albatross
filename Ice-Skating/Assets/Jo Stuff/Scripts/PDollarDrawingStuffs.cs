@@ -20,23 +20,41 @@ public class PDollarDrawingStuffs : MonoBehaviour
 	private LineRenderer currentGestureLineRenderer;
 	private bool recognized;
 	public bool woah;
-	private void Start ()
-{
-	platform = Application.platform;
-	drawArea = new Rect(0, 0, Screen.width, Screen.height);
-	//Load pre-made gestures
-	TextAsset[] gesturesXml = Resources.LoadAll<TextAsset>("GestureSet/10-stylus-MEDIUM/");
-	foreach (TextAsset gestureXml in gesturesXml)
-		trainingSet.Add(GestureIO.ReadGestureFromXML(gestureXml.text));
-	//Load user custom gestures
-	string[] filePaths = Directory.GetFiles(Application.persistentDataPath, "*.xml");
-	foreach (string filePath in filePaths)
-		trainingSet.Add(GestureIO.ReadGestureFromFile(filePath));
-	woah = false;
-}
+	public int pickSymbol;
+	public string useSymbol;
+
+	public string[] symbols;
+	private GameManager gameManager;
+
+	private void Start()
+	{
+		gameManager = FindObjectOfType<GameManager>();
+		platform = Application.platform;
+		drawArea = new Rect(0, 0, Screen.width - Screen.width / 3, Screen.height);
+		//Load pre-made gestures
+		TextAsset[] gesturesXml = Resources.LoadAll<TextAsset>("GestureSet/10-stylus-MEDIUM/");
+		foreach (TextAsset gestureXml in gesturesXml)
+			trainingSet.Add(GestureIO.ReadGestureFromXML(gestureXml.text));
+		//Load user custom gestures
+		string[] filePaths = Directory.GetFiles(Application.persistentDataPath, "*.xml");
+		foreach (string filePath in filePaths)
+			trainingSet.Add(GestureIO.ReadGestureFromFile(filePath));
+		woah = false;
+		symbols = new[]
+		{
+			"circle", "square", "triangle",
+			"diamond", "five point star", "S",
+			"infinity", "vertical line", "horizontal line",
+			"diagonal line", "hourglass", "lightning"
+		};
+		
+	}
 
 private void Update()
 {
+	if (!gameManager.canDraw)
+		return;
+	
 	if (Input.GetMouseButton(0))
 	{
 		virtualKeyPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
@@ -94,7 +112,7 @@ private void TryRecognize()
 			return;
 		}
 
-		if (gestureResult.GestureClass == "five point star")
+		if (gestureResult.GestureClass == useSymbol)
 		{
 
 			woah = true;
@@ -113,6 +131,12 @@ private void TryRecognize()
 				}
 				gestureLinesRenderer.Clear();
 			}
+		}
+
+		else
+		{
+			ClearLine();
+			woah = false;
 		}
 	}
 
