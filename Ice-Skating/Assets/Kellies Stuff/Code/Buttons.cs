@@ -7,6 +7,6 @@ public class Buttons : MonoBehaviour
 {
  public void NewGame()
  {
-  SceneManager.LoadScene("RoomTest");
+  SceneManager.LoadScene("ModelTest");
  }
 }

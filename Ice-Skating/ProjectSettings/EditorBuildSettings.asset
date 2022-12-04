@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Kellies Stuff/scenes/MainMenu.unity
     guid: f465fe8c5f095f64880236c230017882
   - enabled: 1
-    path: Assets/Kellies Stuff/scenes/RoomTest.unity
-    guid: 488b518467b03c74484b4d126c3e6ee4
+    path: Assets/Kellies Stuff/scenes/ModelTest.unity
+    guid: 00aac8da453dd004aa389d8bc2e07ce0
   m_configObjects: {}
