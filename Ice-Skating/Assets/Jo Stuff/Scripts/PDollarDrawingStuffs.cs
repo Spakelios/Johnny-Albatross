@@ -12,7 +12,7 @@ public class PDollarDrawingStuffs : MonoBehaviour
 	private List<Gesture> trainingSet = new List<Gesture>();
 	private List<Point> points = new List<Point>();
 	private int strokeId = -1;
-	private Vector3 virtualKeyPosition = Vector2.zero;
+	public Vector3 virtualKeyPosition = Vector2.zero;
 	private Rect drawArea;
 	private RuntimePlatform platform;
 	private int vertexCount = 0;
@@ -27,11 +27,14 @@ public class PDollarDrawingStuffs : MonoBehaviour
 	public string[] symbols;
 	private GameManager gameManager;
 
-	private void Start()
+	public Camera camera;
+
+
+	private void OnEnable()
 	{
 		gameManager = FindObjectOfType<GameManager>();
 		platform = Application.platform;
-		drawArea = new Rect(0, 0, Screen.width, Screen.height);
+		drawArea = new Rect(0, 0, Screen.width - Screen.width / 2, Screen.height);
 		//Load pre-made gestures
 		TextAsset[] gesturesXml = Resources.LoadAll<TextAsset>("GestureSet/10-stylus-MEDIUM/");
 		foreach (TextAsset gestureXml in gesturesXml)
@@ -48,13 +51,19 @@ public class PDollarDrawingStuffs : MonoBehaviour
 			"infinity", "vertical line", "horizontal line",
 			"diagonal line", "hourglass", "lightning"
 		};
-		
+
+		Cursor.lockState = CursorLockMode.None;
+
+
+
 	}
 
 private void Update()
 {
+	
 	if (!gameManager.canDraw)
 		return;
+		
 	
 	if (Input.GetMouseButton(0))
 	{
@@ -86,12 +95,15 @@ private void Update()
 		if (Input.GetMouseButton(0)) {
 			points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
 			currentGestureLineRenderer.SetVertexCount(++vertexCount);
-			currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
+			currentGestureLineRenderer.SetPosition(vertexCount - 1, camera.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
+			
 		}
 
 		if (Input.GetMouseButtonUp(0))
 		{
+			
 			TryRecognize();
+			
 		}
 	}
 }

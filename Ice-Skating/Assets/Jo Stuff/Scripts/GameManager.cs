@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI symbol;
     public int roundNumber;
     public GameObject panel;
+    private MinigamePlayer player;
     
-    void Start()
+    private void OnEnable()
     {
         symbolDrawing = FindObjectOfType<PDollarDrawingStuffs>();
         canDraw = false;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         status.text = "";
         symbol.text = "";
         panel.SetActive(false);
+        player = FindObjectOfType<MinigamePlayer>();
         
         StartCoroutine(ChooseSymbol());
     }
@@ -84,8 +86,7 @@ public class GameManager : MonoBehaviour
 
     private void CalculatePoints()
     {
-        
-        //print(symbolDrawing.gestureResult.Score);
+        player.PickAnimation();
 
         if (symbolDrawing.gestureResult.Score >= 0.95f)
         {
