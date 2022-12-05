@@ -6,6 +6,10 @@ TagManager:
   tags:
   - NPC
   - Block
+  - Bonnie
+  - Eagles
+  - Jeannie
+  - Johnny
   layers:
   - Default
   - TransparentFX
