@@ -7972,7 +7972,7 @@ GameObject:
   - component: {fileID: 1834883732}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8455,6 +8455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactButton: {fileID: 65568086}
+  start: {fileID: 1084052749}
 --- !u!114 &1886468850
 MonoBehaviour:
   m_ObjectHideFlags: 0
