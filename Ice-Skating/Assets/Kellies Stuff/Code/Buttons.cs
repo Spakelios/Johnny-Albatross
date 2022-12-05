@@ -5,8 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
+ public GameObject rinkPlayer;
+ public GameObject minigameArea;
  public void NewGame()
  {
   SceneManager.LoadScene("ModelTest");
+ }
+
+ public void ReturnToRink()
+ {
+  rinkPlayer.SetActive(true);
+  minigameArea.SetActive(false);
  }
 }

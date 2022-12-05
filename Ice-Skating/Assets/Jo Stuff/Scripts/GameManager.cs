@@ -86,30 +86,33 @@ public class GameManager : MonoBehaviour
 
     private void CalculatePoints()
     {
-        player.PickAnimation();
 
         if (symbolDrawing.gestureResult.Score >= 0.95f)
         {
             status.text = "Amazing!";
             totalPoints += points[4];
+            player.PickAnimation();
         }
         
         else if (symbolDrawing.gestureResult.Score >= 0.9f)
         {
             status.text = "Great!";
             totalPoints += points[3];
+            player.PickAnimation();
         }
         
         else if (symbolDrawing.gestureResult.Score >= 0.85f)
         {
             status.text = "Good!";
             totalPoints += points[2];
+            player.PickAnimation();
         }
         
         else if (symbolDrawing.gestureResult.Score >= 0.6f)
         {
             status.text = "OK";
             totalPoints += points[1];
+            player.PickAnimation();
         }
         
         RestartCountdown();

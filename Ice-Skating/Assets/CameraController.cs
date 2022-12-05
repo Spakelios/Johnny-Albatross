@@ -19,6 +19,11 @@ public class CameraController : MonoBehaviour
     Cursor.lockState = CursorLockMode.Locked;
   }
 
+  private void OnEnable()
+  {
+      Cursor.lockState = CursorLockMode.Locked;
+  }
+
   private void Update()
   {
    rotate(); 
