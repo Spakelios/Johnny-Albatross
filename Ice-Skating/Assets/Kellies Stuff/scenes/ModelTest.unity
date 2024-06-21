@@ -2349,20 +2349,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &413304063
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413304060}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 2.2611308
-  m_Height: 18.913671
-  m_Direction: 1
-  m_Center: {x: -1.5080827, y: -3.5617282, z: -7.5210094}
 --- !u!135 &413304064
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2374,8 +2360,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.2037282
-  m_Center: {x: 0, y: 2.703727, z: 0}
+  m_Radius: 1.3690339
+  m_Center: {x: 0.6719064, y: 0.22876392, z: 0.3989719}
 --- !u!114 &413304065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3701,15 +3687,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff53858ea03e6664e838734fd12ab10b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75686
+      value: 0.9862643
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff53858ea03e6664e838734fd12ab10b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75686
+      value: 0.9862643
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff53858ea03e6664e838734fd12ab10b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.75686
+      value: 0.9862643
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff53858ea03e6664e838734fd12ab10b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4483,10 +4469,10 @@ SphereCollider:
   m_GameObject: {fileID: 884702567}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 3.272066
-  m_Center: {x: 0, y: 2.772066, z: 0}
+  m_Radius: 1.4745609
+  m_Center: {x: -0.3626746, y: 0.66790134, z: 1.9027601}
 --- !u!136 &884702573
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4497,10 +4483,25 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.5294087
-  m_Height: 6.443693
+  m_Radius: 1.3256396
+  m_Height: 6.4436927
   m_Direction: 1
-  m_Center: {x: 0.6051736, y: 2.7218466, z: 0.4242351}
+  m_Center: {x: -0.09414738, y: 2.7218468, z: 0.42423505}
+--- !u!114 &884702574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884702567}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e715bcc659296144889f43ae2495928b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1960126682}
+  dialogueText: {fileID: 0}
+  Canvas: {fileID: 0}
 --- !u!82 &894232275 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 82585700720091338, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
@@ -6513,19 +6514,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &1263025522
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263025519}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.1047397
-  m_Center: {x: 0, y: 2.6047397, z: 0}
 --- !u!136 &1263025523
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8683,7 +8671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a0a5367c62102804eb5fc5ed9e26b660, type: 3}
       propertyPath: m_TagString
-      value: Eagles
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a0a5367c62102804eb5fc5ed9e26b660, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9149,11 +9137,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985524874}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.5937417
-  m_Center: {x: 0, y: 3.0937417, z: 0}
+  m_Radius: 1.1627617
+  m_Center: {x: -0.008993149, y: 0.19683468, z: 0}
 --- !u!136 &1985524876
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9556,8 +9544,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.113812
-  m_Center: {x: 0, y: 2.6138127, z: 0}
+  m_Radius: 1.2267681
+  m_Center: {x: -0.03456831, y: 1.1624792, z: 2.0934875}
 --- !u!1 &2036114101
 GameObject:
   m_ObjectHideFlags: 0

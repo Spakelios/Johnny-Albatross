@@ -19,20 +19,23 @@ public class NPCInteraction : MonoBehaviour
             GM4.SetActive(false);
        
         }
-        else
-        {
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+       if (other.CompareTag("Player"));
+        { 
             GameManager.SetActive(false);
             Textbox.SetActive(false);
             GM2.SetActive(false);
             GM3.SetActive(false);
             GM4.SetActive(false);
             Time.timeScale = 1;
-
-        } 
-        
+        }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (InteractButton == isActiveAndEnabled)
         {
