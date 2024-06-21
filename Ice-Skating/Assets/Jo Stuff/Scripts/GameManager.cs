@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
             250, 500, 750
         };
 
+        roundNumber = 1;
         totalPoints = 0;
         status.text = "";
         symbol.text = "";
@@ -57,7 +60,6 @@ public class GameManager : MonoBehaviour
         }
         
         status.text = "";
-        roundNumber += 1;
         symbolDrawing.woah = false;
         canDraw = true;
         symbolDrawing.pickSymbol = Random.Range(0, symbolDrawing.symbols.Length);
@@ -127,6 +129,7 @@ public class GameManager : MonoBehaviour
       if (roundNumber < 5)
       {
           StartCoroutine(ChooseSymbol());
+          roundNumber += 1;
       }
 
       else
@@ -140,6 +143,4 @@ public class GameManager : MonoBehaviour
         status.text = "";
         panel.SetActive(true);
     }
-    
-    
 }

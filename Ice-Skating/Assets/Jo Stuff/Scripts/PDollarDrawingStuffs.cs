@@ -34,25 +34,38 @@ public class PDollarDrawingStuffs : MonoBehaviour
 	{
 		gameManager = FindObjectOfType<GameManager>();
 		platform = Application.platform;
+		
 		drawArea = new Rect(0, 0, Screen.width - Screen.width / 2, Screen.height);
+		
 		//Load pre-made gestures
 		TextAsset[] gesturesXml = Resources.LoadAll<TextAsset>("GestureSet/10-stylus-MEDIUM/");
 		foreach (TextAsset gestureXml in gesturesXml)
 			trainingSet.Add(GestureIO.ReadGestureFromXML(gestureXml.text));
 		//Load user custom gestures
+		
+		/*
 		string[] filePaths = Directory.GetFiles(Application.persistentDataPath, "*.xml");
 		foreach (string filePath in filePaths)
 			trainingSet.Add(GestureIO.ReadGestureFromFile(filePath));
+			*/
+		
+		TextAsset[] customGesturesXml = Resources.LoadAll<TextAsset>("GestureSet/Custom-Gestures/");
+		foreach (TextAsset gestureXml in customGesturesXml)
+			trainingSet.Add(GestureIO.ReadGestureFromXML(gestureXml.text));
+		
 		woah = false;
 		symbols = new[]
 		{
 			"circle", "square", "triangle",
 			"diamond", "five point star", "S",
-			"infinity", "vertical line", "horizontal line",
-			"diagonal line", "hourglass", "lightning"
+			"infinity", "lightning"
 		};
 
 		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+		Vector2 mousePos = Input.mousePosition;
+		mousePos.x = 0;
+		mousePos.y = 0;
 
 
 
