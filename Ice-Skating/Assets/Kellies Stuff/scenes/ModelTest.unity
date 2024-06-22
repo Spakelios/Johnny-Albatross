@@ -1348,6 +1348,46 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1295795747}
+    - target: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1409428760}
+    - target: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+      propertyPath: symbols.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+      propertyPath: symbols.Array.data[0]
+      value: circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+      propertyPath: symbols.Array.data[1]
+      value: square
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+      propertyPath: symbols.Array.data[2]
+      value: triangle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+      propertyPath: symbols.Array.data[3]
+      value: diamond
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+      propertyPath: symbols.Array.data[4]
+      value: five point star
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+      propertyPath: symbols.Array.data[5]
+      value: S
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+      propertyPath: symbols.Array.data[6]
+      value: infinity
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+      propertyPath: symbols.Array.data[7]
+      value: lightning
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
 --- !u!1 &216780621
@@ -2828,6 +2868,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.6149492
   m_Center: {x: -0.7819886, y: 0.51669216, z: 0.30717087}
+--- !u!114 &489640250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8280210320149101055, guid: 2d3c0c5cccdc4a74caaf34b80166de3f, type: 3}
+  m_PrefabInstance: {fileID: 204127769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e87f1cec02ecee4e9880171d6ede017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &491150755
 GameObject:
   m_ObjectHideFlags: 0
@@ -5814,7 +5865,7 @@ MeshCollider:
   m_GameObject: {fileID: 1090843100}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -7183,12 +7234,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDraw: 0
   roundCooldown: 0
+  symbolDrawing: {fileID: 489640250}
   countdown: 0
   total: {fileID: 1821913201}
   status: {fileID: 609085420}
   symbol: {fileID: 1993313812}
   roundNumber: 0
   panel: {fileID: 340610403}
+  player: {fileID: 82801558}
+  useSymbol: 
+  symbols:
+  - circle
+  - square
+  - triangle
+  - diamond
+  - five point star
+  - S
+  - infinity
+  - lightning
 --- !u!1 &1481959727
 GameObject:
   m_ObjectHideFlags: 0
@@ -10234,9 +10297,7 @@ MonoBehaviour:
   gestureOnScreenPrefab: {fileID: 400000, guid: 971129baafd304455a111daa5207b8a1, type: 3}
   virtualKeyPosition: {x: 0, y: 0, z: 0}
   woah: 0
-  pickSymbol: 0
-  useSymbol: 
-  symbols: []
+  gameManager: {fileID: 0}
   camera: {fileID: 0}
 --- !u!1001 &2083005338
 PrefabInstance:
@@ -10677,6 +10738,18 @@ PrefabInstance:
     - target: {fileID: 2027076233, guid: 2dc82fe7edbfe5c45aef7197ba34bae1, type: 3}
       propertyPath: m_Shadows.m_Type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 232153304323906317, guid: 2dc82fe7edbfe5c45aef7197ba34bae1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9778.427
+      objectReference: {fileID: 0}
+    - target: {fileID: 232153304323906317, guid: 2dc82fe7edbfe5c45aef7197ba34bae1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9778.427
+      objectReference: {fileID: 0}
+    - target: {fileID: 232153304323906317, guid: 2dc82fe7edbfe5c45aef7197ba34bae1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 180.6091
       objectReference: {fileID: 0}
     - target: {fileID: 2754296828862777694, guid: 2dc82fe7edbfe5c45aef7197ba34bae1, type: 3}
       propertyPath: m_RootOrder

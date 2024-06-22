@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public bool canDraw;
     public int roundCooldown;
-    private PDollarDrawingStuffs symbolDrawing;
+    public PDollarDrawingStuffs symbolDrawing;
     public int countdown;
     private int[] points;
     private int totalPoints;
@@ -19,26 +19,38 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI symbol;
     public int roundNumber;
     public GameObject panel;
-    private MinigamePlayer player;
-    
-    private void OnEnable()
+    public MinigamePlayer player;
+    private int pickSymbol;
+    public string useSymbol;
+    public string[] symbols;
+
+    private void Awake()
     {
-        symbolDrawing = FindObjectOfType<PDollarDrawingStuffs>();
-        canDraw = false;
-        countdown = 5;
         points = new[]
         {
             50, 100,
             250, 500, 750
         };
-
+    }
+    
+    private void OnEnable()
+    {
+        //symbolDrawing = FindObjectOfType<PDollarDrawingStuffs>();
+        canDraw = false;
+        countdown = 5;
+        
         roundNumber = 1;
         totalPoints = 0;
         status.text = "";
         symbol.text = "";
         panel.SetActive(false);
-        player = FindObjectOfType<MinigamePlayer>();
-        
+        //player = FindObjectOfType<MinigamePlayer>();
+
+        //StartCoroutine(ChooseSymbol());
+    }
+
+    public void DoIt()
+    {
         StartCoroutine(ChooseSymbol());
     }
 
@@ -46,6 +58,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         total.text = "Total Points: " + totalPoints;
+        
     }
 
     private IEnumerator ChooseSymbol()
@@ -62,9 +75,9 @@ public class GameManager : MonoBehaviour
         status.text = "";
         symbolDrawing.woah = false;
         canDraw = true;
-        symbolDrawing.pickSymbol = Random.Range(0, symbolDrawing.symbols.Length);
-        symbolDrawing.useSymbol = symbolDrawing.symbols[symbolDrawing.pickSymbol];
-        symbol.text = symbolDrawing.useSymbol;
+        pickSymbol = Random.Range(0, symbols.Length);
+        useSymbol = symbols[pickSymbol];
+        symbol.text = useSymbol;
         StartCoroutine(DrawSymbol());
     }
 
@@ -72,13 +85,10 @@ public class GameManager : MonoBehaviour
     {
         countdown = 5;
         
-        while (countdown > 0)
+        while (countdown > 0 && symbolDrawing.woah == false)
         {
             yield return new WaitForSeconds(1f);
             countdown--;
-
-            if (!symbolDrawing.woah) continue;
-            CalculatePoints();
         }
         
         status.text = "Bad...";
@@ -86,7 +96,7 @@ public class GameManager : MonoBehaviour
         RestartCountdown();
     }
 
-    private void CalculatePoints()
+    public void CalculatePoints()
     {
 
         if (symbolDrawing.gestureResult.Score >= 0.95f)

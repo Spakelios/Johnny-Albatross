@@ -20,23 +20,17 @@ public class PDollarDrawingStuffs : MonoBehaviour
 	private LineRenderer currentGestureLineRenderer;
 	private bool recognized;
 	public bool woah;
-	public int pickSymbol;
-	public string useSymbol;
+	//public int pickSymbol;
+	//public string useSymbol;
 	public Result gestureResult;
 
-	public string[] symbols;
-	private GameManager gameManager;
+	//public string[] symbols;
+	public GameManager gameManager;
 
 	public Camera camera;
 
-
-	private void OnEnable()
+	private void Awake()
 	{
-		gameManager = FindObjectOfType<GameManager>();
-		platform = Application.platform;
-		
-		drawArea = new Rect(0, 0, Screen.width - Screen.width / 2, Screen.height);
-		
 		//Load pre-made gestures
 		TextAsset[] gesturesXml = Resources.LoadAll<TextAsset>("GestureSet/10-stylus-MEDIUM/");
 		foreach (TextAsset gestureXml in gesturesXml)
@@ -52,31 +46,31 @@ public class PDollarDrawingStuffs : MonoBehaviour
 		TextAsset[] customGesturesXml = Resources.LoadAll<TextAsset>("GestureSet/Custom-Gestures/");
 		foreach (TextAsset gestureXml in customGesturesXml)
 			trainingSet.Add(GestureIO.ReadGestureFromXML(gestureXml.text));
+	}
+
+	
+	private void OnEnable()
+	{
+		//gameManager = FindObjectOfType<GameManager>();
+		//platform = Application.platform;
+		
+		drawArea = new Rect(0, 0, Screen.width - Screen.width / 2, Screen.height);
 		
 		woah = false;
-		symbols = new[]
-		{
-			"circle", "square", "triangle",
-			"diamond", "five point star", "S",
-			"infinity", "lightning"
-		};
 
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		Vector2 mousePos = Input.mousePosition;
 		mousePos.x = 0;
 		mousePos.y = 0;
-
-
-
+		
+		gameManager.DoIt();
 	}
 
 private void Update()
 {
 	
-	if (!gameManager.canDraw)
-		return;
-		
+	if (!gameManager.canDraw) return;
 	
 	if (Input.GetMouseButton(0))
 	{
@@ -138,10 +132,11 @@ private void TryRecognize()
 			return;
 		}
 
-		if (gestureResult.GestureClass == useSymbol)
+		if (gestureResult.GestureClass == gameManager.useSymbol)
 		{
 
 			woah = true;
+			gameManager.CalculatePoints();
 
 			if (recognized)
 			{
@@ -157,6 +152,7 @@ private void TryRecognize()
 				}
 				gestureLinesRenderer.Clear();
 			}
+			
 		}
 
 		else
